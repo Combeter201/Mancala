@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mancala Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/mancala.png') }}">
+    <style>
+        /* Add any additional CSS styles as needed */
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="board">
+        <div class="mancala_red">{{ game.board[13] }}</div>
+        <div class="pit-container">
+            <div class="row">
+                {% for i in range(12, 6, -1) %}
+                <div>
+                    <button class="pit red" type="button" {% if game.current_player == 1 %}disabled{% endif %}
+                            onclick="location.href='{{ url_for('move', pit=i) }}';">{{ game.board[i] }}</button>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                {% for i in range(0, 6) %}
+                <div>
+                    <button class="pit blue" type="button" {% if game.current_player == 2 %}disabled{% endif %}
+                            onclick="location.href='{{ url_for('move', pit=i) }}';">{{ game.board[i] }}</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="mancala_blue">{{ game.board[6] }}</div>
+    </div>
+    <h1>Mancala Game</h1>
+    <div class="game-info">
+        <p>Current Player: Player {{ game.current_player }}</p>
+        {% if game.is_game_over() %}
+        <h2>Game Over! Winner is: {{ game.get_winner() }}</h2>
+        {% endif %}
+        <form action="{{ url_for('reset') }}">
+            <button type="submit">Reset Game</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

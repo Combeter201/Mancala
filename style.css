@@ -1,0 +1,118 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.board {
+    display: flex;
+    grid-template-columns: repeat(8, 60px);
+    grid-gap: 10px;
+    margin-top: 20px;
+}
+
+.red, .mancala_red {
+    background-color: #ff7281;
+    color: white;
+}
+
+.red:hover {
+    background-color: #ff919d;
+}
+
+.blue, .mancala_blue {
+    background-color: #728bff;
+    color: white;
+}
+
+.blue:hover {
+    background-color: #91aaff;
+}
+
+.mancala_red, .mancala_blue {
+    height: 130px;
+    width: 60px;
+    border-radius: 10px;
+    line-height: 130px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.pit {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    line-height: 60px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Updated style for disabled buttons */
+.pit:disabled {
+    background-color: #ddd; /* Gray background */
+    color: #aaa; /* Lighter text color */
+    cursor: not-allowed; /* Cursor indicating not clickable */
+}
+
+.pit-container {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 10px;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    grid-gap: 10px;
+    justify-content: center;
+    flex-direction: row;
+}
+
+h1 {
+    color: #728bff;
+}
+
+button {
+    background-color: #72ffaf;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #9ff9cb;
+}
+
+.game-info {
+    margin-top: 20px;
+    font-size: 18px;
+}
